@@ -1,2 +1,1 @@
-# fp-test
-Test fastparquet python package
+In this repo fastparquet python package is testet.
