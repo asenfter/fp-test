@@ -1,0 +1,7 @@
+# IntelliJ stuff
+.idea/
+
+venv/
+.ipynb_checkpoints/
+__pycache__
+*.pyc
