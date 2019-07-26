@@ -18,19 +18,19 @@ In a nutshell it's somehow structured like this:
 
 
  
-All parquet files have the same columns. One out of it is `value` where the actual sensor values are stored. 
-Because of historical reasons the dtype of `value` is object (with string values) for the year 2017 but 
-`float` for 2018.   
+All parquet files have the same columns. One out of it is the column `value` where the actual sensor values are stored. 
+All values are floats. But because of historical reasons the dtype of `value` is `object` (with float as string values) 
+for the year 2017 and `float` for 2018.   
 
-When I use fastparqet to load the data as pandas DataFrame I actually have the problem that depending 
-on the order the files are feeded to fastparquet the app just works fine or ends in an error:
+When I use fastparqet to load the data to pandas DataFrame I actually have the problem that depending 
+on the order the files are feeded to fastparquet the app will work or even end in an error:
  * First load float data followed by string data works  
  * First load string data followed by float data ends in a TypeError
 
         TypeError: expected array of bytes
   
 
-To demonstrate the issue i wrote a unittest in test_fastparquet.py
+To demonstrate the issue i wrote an unittest in test_fastparquet.py
 
 The script `run.sh` creates a virtual environment with all required packages and executes the tests.
 
