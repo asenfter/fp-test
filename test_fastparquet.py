@@ -95,8 +95,8 @@ class FastParquetTest(unittest.TestCase):
     def test_first_read_float_then_string_fixed(self):
         """
         Read both parquet files using fastparquet in the following order:
-        1. df with string value
-        2. df with float value
+        1. df with float value
+        2. df with string value
 
         No error is expected and the resulting dtype of the column 'value' is expected to be object
         """
@@ -106,7 +106,6 @@ class FastParquetTest(unittest.TestCase):
         ]
         df = self._read_fixed(files)
         self.assertEqual(df['value'].dtype, 'object')
-        print(df['value'].dtype)
 
     def _read(self, files):
         pf = fp.ParquetFile(files, root=self.path)
